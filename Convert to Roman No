@@ -1,0 +1,55 @@
+import java.util.Scanner;
+import java.util.*;
+
+
+class NoToRoman
+{
+	public static void main(String args[])
+	{
+		Scanner sc = new Scanner(System.in);
+		int t = sc.nextInt();
+		while(t>0)
+		{
+			int N = sc.nextInt();
+			
+			GfG g = new GfG();
+			System.out.println (g.convertToRoman(N));
+			t--;
+		}
+	}
+}// } Driver Code Ends
+
+class GfG
+{
+    String convertToRoman(int n)
+    {
+        String []thousands=new String[]{" " ,"M" ,"MM" ,"MMM"};
+        String []hundreds={"", "C" ,"CC" ,"CCC" ,"CD" ,"D" ,"DC" ,"DCC" ,"DCCC" ,"CM"};
+        String []tens={"", "X" ,"XX" ,"XXX" ,"XL" ,"L" ,"LX" ,"LXX" ,"LXXX" ,"XC"};
+        String []ones={"" ,"I" ,"II" ,"III" ,"IV" ,"V" ,"VI" ,"VII" ,"VIII" ,"IX"};
+        
+        String res = "";
+        while(n!=0){
+            if(n>999){
+                int temp=n/1000;
+                n=n%1000;
+                res+=thousands[temp];
+            }
+            else if(n>=100 && n<=999){
+                int temp=n/100;
+                n=n%100;
+                res+=hundreds[temp];
+            }
+            else if(n>=10 && n<=99){
+                int temp=n/10;
+                n=n%10;
+                res+=tens[temp];
+            }
+            else{
+                res+=ones[n];
+                n=0;
+            }
+        }
+        return res;
+    }
+}
