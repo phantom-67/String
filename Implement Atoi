@@ -1,0 +1,41 @@
+// https://practice.geeksforgeeks.org/problems/implement-atoi/0/?track=amazon-strings&batchId=192#
+
+import java.util.Scanner;
+
+class aToi
+{
+	public static void main(String args[])
+	{
+		Scanner sc = new Scanner(System.in);
+		int t = sc.nextInt();
+		sc.nextLine();
+		while(t>0)
+		{
+			String str = sc.nextLine();
+			
+			Solution obj = new Solution();
+			System.out.println(obj.atoi(str));
+		t--;
+		}
+	}
+}// } Driver Code Ends
+
+/*You are required to complete this method */
+class Solution
+{
+    int atoi(String str)
+    {
+        try{
+            int v=Integer.parseInt(str);
+            if(v<0) v*=-1;
+            while(v!=0){
+                int d=v%10;
+                v=v/10;
+            }
+            return Integer.parseInt(str);
+        }
+        catch(Exception e) {
+            return -1;
+        }
+    }
+}
