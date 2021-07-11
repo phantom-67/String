@@ -1,0 +1,45 @@
+// https://practice.geeksforgeeks.org/problems/reverse-words-in-a-given-string5459/1/?track=dsa-workshop-1-strings&batchId=308
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+class GFG {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        while (t > 0) {
+            String s = sc.next();
+            Solution obj = new Solution();
+            System.out.println(obj.reverseWords(s));
+            t--;
+        }
+    }
+}
+// } Driver Code Ends
+
+class Solution 
+{
+    //Function to reverse words in a given string.
+    String reverseWords(String S)
+    {
+        ArrayList<String> al = new ArrayList<>();
+        String s="";
+        for(char c:S.toCharArray()){
+            if(c=='.'){
+                al.add(0,s);
+                al.add(0,".");
+                s="";
+            }
+            else{
+                s+=c;
+            }
+        }
+        al.add(0,s);
+        String res="";
+        for(String v:al){
+            res+=v;
+        }
+        return res;
+    }
+}
